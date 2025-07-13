@@ -2,9 +2,9 @@
     "name": "Web_programming",
     "version": "1.1",
     "description": "",
-    "main": "App.js",
+    "main": "index.js",
     "scripts": {
-        "start": "nodemon App.js"
+        "start": "nodemon index.js"
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",

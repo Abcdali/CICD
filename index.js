@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const User = require('./user23');
 const Use=require('./add');
-const Payment = require('./pays'); // Adjust the path as necessary
+const Payment = require('./pays'); 
 const Sign_in = require('./sign-in');
 // const User = require('./add');
 
@@ -17,7 +17,6 @@ const Sign_in = require('./sign-in');
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,7 +31,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     app.post('/Sign_up', async (req, res) => {
         const { name, username, email, tel, password, cpassword } = req.body;
     
-        // Validate input
+    
         if (!name || !username || !email || !tel || !password || !cpassword) {
             return res.render('Sign_up', { message: 'All fields are required' });
         }
@@ -64,13 +63,13 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     app.post('/payment', async (req, res) => {
         const { name, email, address, city, state, zip_code, card, credit,date,  cvv } = req.body;
     
-        // Validate input
+    
         if (!name || !email || !address || !city || !state || !zip_code || !card || !credit ||!date || !cvv) {
             return res.render('Payment', { message: 'All fields are required' });
         }
     
         try {
-            // Create a new payment
+            
             const newPayment = new Payment({
                 name,
                 email,
